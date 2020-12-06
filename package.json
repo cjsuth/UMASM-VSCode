@@ -4,6 +4,10 @@
     "description": "UMASM language support for VSCode",
     "version": "0.0.1",
     "publisher": "csuthe04",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cjsuth/UMASM-VSCode.git"
+    },
     "engines": {
         "vscode": "^1.51.0"
     },
