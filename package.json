@@ -1,0 +1,26 @@
+{
+    "name": "umasm",
+    "displayName": "UMASM",
+    "description": "UMASM language support for VSCode",
+    "version": "0.0.1",
+    "publisher": "csuthe04",
+    "engines": {
+        "vscode": "^1.51.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "umasm",
+            "aliases": ["UMASM", "umasm"],
+            "extensions": [".ums"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "umasm",
+            "scopeName": "source.umasm",
+            "path": "./syntaxes/umasm.tmLanguage.json"
+        }]
+    }
+}

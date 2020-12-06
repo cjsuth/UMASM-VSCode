@@ -1,0 +1,80 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "UMASM",
+	"patterns": [
+		{
+			"include": "#reserved"
+		},
+		{
+			"include": "#entities"
+		},
+		{
+			"include": "#registers"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"reserved": {
+			"patterns": [
+				{
+					"name": "keyword.control.umasm",
+					"match": "\\b(if|m|goto|map|segment|nand|xor|mod|string|unmap|input|output|in|program|using|here|halt|words|push|pop|on|off|stack|linking)\\b"
+				},
+				{
+					"name": "entity.name.type",
+					"match": "\\b(init|rodata|data|text|stk)\\b"
+				}
+			]
+		},
+		"entities": {
+			"patterns": [
+				{
+					"name": "storage.modifier",
+					"match": "(\\.)\\b(section|data|space|string|zero|temps)\\b"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "(?:(\\.)?|\\b)((?:[[:alpha:]_?](?:[[:alnum:]_$#@~.?]*)))(?:(\\:))"
+				}
+			]
+		},
+		"registers": {
+			"patterns": [{
+				"name": "entity.name.variable",
+				"match": "(?i)\\b(p(?:[1-7])|r(?:[0-7]))\\b"
+			}]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line",
+				"match": "((^|\\s)#).*$"
+			}]
+		},
+		"constants": {
+			"patterns": [{
+				"name": "constant.numeric",
+				"match": "(?i)\\b(?:(?:0[dt](?:[0-9][0-9_]*))|(?:(?:[0-9][0-9_]*)[dt]?))\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.umasm",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.umasm",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.umasm"
+}
